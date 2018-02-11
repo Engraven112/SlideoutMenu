@@ -1,36 +1,49 @@
 {
-  "name": "slideoutmenu",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Engraven112/SlideoutMenu.git"
-  },
-  "author": "Sopheap Hok",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Engraven112/SlideoutMenu/issues"
-  },
-  "homepage": "https://github.com/Engraven112/SlideoutMenu#readme",
-  "dependencies": {
-    "development": "0.0.6",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.9",
-    "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.20.1",
-    "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.1"
-  }
+    "name": "SlideoutMenu",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "webpack-dev-server",
+        "build": "webpack -p --config webpack.production.config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "keywords": [
+        "React",
+        "Webpack",
+        "Babel"
+    ],
+    "author": "Vijay Thirugnanam",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": ""
+    },
+    "homepage": "",
+    "dependencies": {
+        "react": "^15.6.1",
+        "react-dom": "^15.6.1"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-react": "^6.24.1",
+        "copy-webpack-plugin": "^4.0.1",
+        "css-loader": "^0.28.7",
+        "eslint": "^4.6.1",
+        "eslint-loader": "^1.9.0",
+        "eslint-plugin-react": "^7.3.0",
+        "extract-text-webpack-plugin": "^3.0.0",
+        "file-loader": "^0.11.2",
+        "node-sass": "^4.5.3",
+        "react-hot-loader": "next",
+        "sass-loader": "^6.0.6",
+        "style-loader": "^0.18.2",
+        "webpack": "^3.5.5",
+        "webpack-dev-server": "^2.7.1"
+    }
 }

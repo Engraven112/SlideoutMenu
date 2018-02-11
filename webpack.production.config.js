@@ -1,28 +1,18 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: [
-        'react-hot-loader/patch',
-        'webpack/hot/only-dev-server',
         './src/app.jsx'
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
-    devtool: 'cheap-module-eval-source-map',
     module: {
         rules: [
-            {
-                test: /\.jsx?$/,
-                enforce: 'pre',
-                loader: 'eslint-loader',
-                options: {
-                    emitWarning: true
-                },
-            },
             {
                 test: /.jsx?$/,
                 loader: 'babel-loader',
@@ -35,13 +25,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [{
-                    loader: 'style-loader'
-                }, {
-                    loader: 'css-loader'
-                }, {
-                    loader: 'sass-loader'
-                }]
+                use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
             },
             {
                 test: /\.(jpg|png|svg)$/,
@@ -63,14 +47,14 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: 'src/index.html' }
         ]),
-        new webpack.HotModuleReplacementPlugin()
-    ],
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        hot: true,
-        overlay: {
-            errors: true,
-            warnings: true,
-        }
-    }
+        new ExtractTextPlugin("styles.css"),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+            },
+            output: {
+                comments: false,
+            }
+        })
+    ]
 }
