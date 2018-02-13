@@ -1,15 +1,4 @@
-@import 'bourbon/bourbon';
-
-.container {
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url('../../images/webpack.png') no-repeat center center fixed;
-    min-height: 100%;
-    position: relative;
-    z-index: 2;
-}
+@import 'plugins';
 
 .toggle {
     transition-property: left;
@@ -70,3 +59,21 @@
     }
 }
 
+$neat-grid: (
+  columns: 8,
+  gutter: 1rem,
+  direction: ltr,
+);
+
+.container {
+    width:500px;
+
+    .boxes {
+        @include grid-container;
+      }
+      .box {
+        @include grid-column(2);
+        background: red;
+        height: 100px;
+      }
+}
